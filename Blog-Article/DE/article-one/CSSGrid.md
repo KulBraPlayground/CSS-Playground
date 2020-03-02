@@ -1,10 +1,18 @@
 # CSS-Grid in a nutshell
 
-## Was ist CSSGrid
+## Was ist CSSGrid?
 CSSGrid ist ein Konzept in CSS, welches dem Entwickler erlaubt, das Layouting für eine Website ohne eigene Berechnungen im Styling durchführen zu müssen. 
 Auch lassen sich mithilfe von CSSGrid unter Anderem Darstellungs-Elemente wie Informationskarten mit relativ wenig Aufwand im Vergleich zu anderen Konzepten erstellen.
 
 In CSSGrid wird (im besten Fall) jedes angezeigte HTML-Element einem Bereich (im Nachfolgenden area genannt) zugeordnet, im folgenden Beispiel sind dies 'header', 'main', 'aside' & 'footer':
+
+## Der Weg zur ersten View mit CSSGrid
+
+Im nachfolgenden Beispiel wird eine HTML-Page erzeugt die Schritt für Schritt um CSSGrid-Attribute erweitert wird. Ziel dieses Vorgehens ist es, aufzuzeigen, wie schnell und einfach eine übersichtliche Anzeige mithilfe von CSSGrid erzeugt werden kann. Alle folgenden Beispiele in diesem Markdown-Dokument sind in CSS-Grid umgesetzt und nicht als Foto eingefügt.  
+
+### Das Grundgerüst in HTML
+
+
 
 ```html 
 <div id="my-beautiful-webside">
@@ -15,6 +23,28 @@ In CSSGrid wird (im besten Fall) jedes angezeigte HTML-Element einem Bereich (im
 </div>
 ``` 
 
+### Ergebnis:
+
+<style>
+    #my-beautiful-webside1{
+        max-width: 500px;
+        max-height: 500px;
+        background-color: lightgrey;
+        color: black;
+    }
+</style>
+<div id="my-beautiful-webside1">
+    <header class="header1">HEADER</header>
+    <main class="main1">MAIN</main>
+    <aside class="aside1">ASIDE</aside>
+    <footer class="footer1" >FOOTER</footer>
+</div>
+
+
+### Erweiterung um Hintergrundfarben und die Zuweisung von Area-Attributen
+
+In diesem Code-Snippet wird unser HTML um eine Hintergrundfarbe für jedes enthaltene HTML-Element erweitert. Dieses Vorgehen soll dabei helfen nachfolgende Anpassungen optisch besser nachvollziehen zu können. 
+Des Weiteren werden an dieser Stelle bereits die Grid-Area-Zuweisungen der Elemente durchgeführt. 
 Mit dem zugehörigen css (die background-color ist optional): 
 
 ```css
@@ -39,7 +69,42 @@ Mit dem zugehörigen css (die background-color ist optional):
 }
 ```
 
-Die grid-area zuweisungen allein bewirken leider jedoch nichts, um die zuvor definierten areas nutzen zu können ist es notwendig, der Webside die display-Eigenschaft 'grid' zuzuweisen und eine Vorlage (im Nachfolgenden template genannt) inklusive Reihen und Spaltengröße zu definieren: 
+### Ergebnis: 
+<style>
+#my-beautiful-webside2{
+    max-width: 500px;
+    max-height: 500px;
+    color: black;
+}
+
+.header2{
+    grid-area: header;
+    background-color: lightcoral;
+}
+
+.main2{
+    grid-area: main;
+    background-color: lightskyblue;
+}
+
+.aside2{
+    grid-area: aside;
+    background-color: lemonchiffon;
+}
+
+.footer2{
+    grid-area: footer;
+    background-color: lightgreen;
+}
+</style>
+<div id="my-beautiful-webside2">
+    <header class="header2">HEADER</header>
+    <main class="main2">MAIN</main>
+    <aside class="aside2">ASIDE</aside>
+    <footer class="footer2" >FOOTER</footer>
+</div>
+
+Die grid-area Zuweisungen allein bewirken leider jedoch nichts, um die zuvor definierten areas nutzen zu können ist es notwendig, der Webside die display-Eigenschaft 'grid' zuzuweisen und eine Vorlage (im Nachfolgenden template genannt) inklusive Reihen und Spaltengröße zu definieren: 
 
 ```css 
 #my-beautiful-webside {
@@ -90,7 +155,7 @@ Die grid-area zuweisungen allein bewirken leider jedoch nichts, um die zuvor def
 </div>
 
 
-Mit wenigen Zeilen Code und Styling entsteht so schon ein Grid welches die horizontale und vertikale Anzeige in 9 gleich große Felder aufteilt.
+Mit wenigen Zeilen Code und Styling entsteht so schon ein Grid welches die horizontale und vertikale Anzeige in neun Felder aufteilt und deren Inhalt nach den Angaben in CSS aufteilt.
 
 ## Was sind die Vor- und Nachteile von CSSGrid?
 
